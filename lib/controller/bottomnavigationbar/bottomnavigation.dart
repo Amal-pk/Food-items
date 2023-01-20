@@ -4,7 +4,7 @@ import 'package:food_items/view/profile/profile.dart';
 
 class BottomNavigationController extends ChangeNotifier {
   final List<dynamic> screens = [
-    const HomePage(),
+    HomePage(),
     Profile(),
   ];
   int currentIndex = 0;

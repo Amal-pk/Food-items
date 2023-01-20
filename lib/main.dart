@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:food_items/controller/bottomnavigationbar/bottomnavigation.dart';
 import 'package:food_items/controller/homepage/homepagecontroller.dart';
@@ -9,7 +10,21 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: "AIzaSyBu8SS6jjLNypc4UOYwIlRj_HvpMON7qew",
+        authDomain: "food-items-7a10c.firebaseapp.com",
+        projectId: "food-items-7a10c",
+        storageBucket: "food-items-7a10c.appspot.com",
+        messagingSenderId: "697327713303",
+        appId: "1:697327713303:web:c39510692f82a4488f7052",
+      ),
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
+
   runApp(const MyApp());
 }
 
